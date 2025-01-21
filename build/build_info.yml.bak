@@ -1,0 +1,5 @@
+west:
+  command: /Volumes/Project/Zephyr_Project/zephyr-env/bin/west build -b xiao_esp32c3
+    -p
+  topdir: /Volumes/Project/Zephyr_Project
+  version: 1.3.0

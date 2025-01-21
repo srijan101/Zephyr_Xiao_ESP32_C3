@@ -1,0 +1,632 @@
+# 0 "/Volumes/Project/Zephyr_Project/zephyr/misc/empty_file.c"
+# 0 "<built-in>"
+# 0 "<command-line>"
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3.dts" 1
+
+
+
+
+
+
+/dts-v1/;
+
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/dts/riscv/espressif/esp32c3/esp32c3_fx4.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi" 1 3 4
+
+
+
+
+
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/dts/common/mem.h" 1 3 4
+# 7 "/Volumes/Project/Zephyr_Project/zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi" 2 3 4
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/dts/common/freq.h" 1 3 4
+# 8 "/Volumes/Project/Zephyr_Project/zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi" 2 3 4
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/dt-bindings/adc/adc.h" 1 3 4
+# 9 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/dt-bindings/adc/adc.h" 3 4
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/dt-bindings/dt-util.h" 1 3 4
+# 19 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/dt-bindings/dt-util.h" 3 4
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_macro.h" 1 3 4
+# 34 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_macro.h" 3 4
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_internal.h" 1 3 4
+# 18 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_internal.h" 3 4
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_loops.h" 1 3 4
+# 1083 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_loops.h" 3 4
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_listify.h" 1 3 4
+# 1084 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_loops.h" 2 3 4
+# 19 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+# 162 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_internal.h" 3 4
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_internal_is_eq.h" 1 3 4
+# 163 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+# 193 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_internal.h" 3 4
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_internal_util_inc.h" 1 3 4
+# 194 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+
+
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_internal_util_dec.h" 1 3 4
+# 197 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+
+
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_internal_util_x2.h" 1 3 4
+# 200 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+# 35 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/sys/util_macro.h" 2 3 4
+# 20 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/dt-bindings/dt-util.h" 2 3 4
+# 10 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/dt-bindings/adc/adc.h" 2 3 4
+# 9 "/Volumes/Project/Zephyr_Project/zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi" 2 3 4
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/dt-bindings/gpio/gpio.h" 1 3 4
+# 10 "/Volumes/Project/Zephyr_Project/zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi" 2 3 4
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/dt-bindings/i2c/i2c.h" 1 3 4
+# 11 "/Volumes/Project/Zephyr_Project/zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi" 2 3 4
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/dt-bindings/interrupt-controller/esp-esp32c3-intmux.h" 1 3 4
+# 12 "/Volumes/Project/Zephyr_Project/zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi" 2 3 4
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/dt-bindings/clock/esp32c3_clock.h" 1 3 4
+# 13 "/Volumes/Project/Zephyr_Project/zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi" 2 3 4
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/dt-bindings/pinctrl/esp32-pinctrl.h" 1 3 4
+# 14 "/Volumes/Project/Zephyr_Project/zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi" 2 3 4
+
+/ {
+ #address-cells = <1>;
+ #size-cells = <1>;
+
+ aliases {
+  die-temp0 = &coretemp;
+ };
+
+ chosen {
+  zephyr,canbus = &twai;
+  zephyr,entropy = &trng0;
+  zephyr,flash-controller = &flash;
+  zephyr,bt-hci = &esp32_bt_hci;
+ };
+
+ cpus {
+  #address-cells = <1>;
+  #size-cells = <0>;
+
+  cpu0: cpu@0 {
+   device_type = "cpu";
+   compatible = "espressif,riscv", "riscv";
+   riscv,isa = "rv32imc_zicsr";
+   reg = <0>;
+   cpu-power-states = <&light_sleep &deep_sleep>;
+   clock-source = <1U>;
+   clock-frequency = <(((160) * 1000) * 1000)>;
+   xtal-freq = <(((40) * 1000) * 1000)>;
+  };
+
+  power-states {
+   light_sleep: light_sleep {
+    compatible = "zephyr,power-state";
+    power-state-name = "standby";
+    min-residency-us = <200>;
+    exit-latency-us = <60>;
+   };
+
+   deep_sleep: deep_sleep {
+    compatible = "zephyr,power-state";
+    power-state-name = "soft-off";
+    min-residency-us = <660>;
+    exit-latency-us = <105>;
+   };
+  };
+ };
+
+ pinctrl: pin-controller {
+  compatible = "espressif,esp32-pinctrl";
+  status = "okay";
+ };
+
+ wifi: wifi {
+  compatible = "espressif,esp32-wifi";
+  status = "disabled";
+ };
+
+ esp32_bt_hci: esp32_bt_hci {
+  compatible = "espressif,esp32-bt-hci";
+  status = "disabled";
+ };
+
+ soc {
+  #address-cells = <1>;
+  #size-cells = <1>;
+  compatible = "simple-bus";
+  ranges;
+
+  sram0: memory@4037c000 {
+   compatible = "zephyr,memory-region", "mmio-sram";
+   reg = <0x4037c000 ((16) * 1024)>;
+   zephyr,memory-region = "SRAM0";
+  };
+
+  sram1: memory@3fc80000 {
+   compatible = "zephyr,memory-region", "mmio-sram";
+   reg = <0x3fc80000 ((384) * 1024)>;
+   zephyr,memory-region = "SRAM1";
+  };
+
+  intc: interrupt-controller@600c2000 {
+   compatible = "espressif,esp32-intc";
+   #address-cells = <0>;
+   #interrupt-cells = <3>;
+   interrupt-controller;
+   reg = <0x600c2000 0x198>;
+   status = "okay";
+  };
+
+  systimer0: systimer@60023000 {
+   compatible = "espressif,esp32-systimer";
+   reg = <0x60023000 0x80>;
+   interrupts = <37 3 0>;
+   interrupt-parent = <&intc>;
+   status = "okay";
+  };
+
+  rtc: rtc@60008000 {
+   compatible = "espressif,esp32-rtc";
+   reg = <0x60008000 0x1000>;
+   fast-clk-src = <1>;
+   slow-clk-src = <0>;
+   #clock-cells = <1>;
+   status = "okay";
+  };
+
+  xt_wdt: xt_wdt@60008004 {
+   compatible = "espressif,esp32-xt-wdt";
+   reg = <0x60008004 0x4>;
+   clocks = <&rtc 27>;
+   interrupts = <27 3 0>;
+   interrupt-parent = <&intc>;
+   status = "disabled";
+  };
+
+  rtc_timer: rtc_timer@60008004 {
+   reg = <0x60008004 0xC>;
+   compatible = "espressif,esp32-rtc-timer";
+   clocks = <&rtc 27>;
+   interrupts = <27 3 0>;
+   interrupt-parent = <&intc>;
+   status = "okay";
+  };
+
+  flash: flash-controller@60002000 {
+   compatible = "espressif,esp32-flash-controller";
+   reg = <0x60002000 0x1000>;
+
+   #address-cells = <1>;
+   #size-cells = <1>;
+
+   flash0: flash@0 {
+    compatible = "soc-nv-flash";
+    erase-block-size = <4096>;
+    write-block-size = <4>;
+
+   };
+  };
+
+  gpio0: gpio@60004000 {
+   compatible = "espressif,esp32-gpio";
+   gpio-controller;
+   #gpio-cells = <2>;
+   reg = <0x60004000 0x800>;
+   interrupts = <16 3 0>;
+   interrupt-parent = <&intc>;
+
+
+
+
+
+   ngpios = <26>;
+  };
+
+  i2c0: i2c@60013000 {
+   compatible = "espressif,esp32-i2c";
+   #address-cells = <1>;
+   #size-cells = <0>;
+   reg = <0x60013000 0x1000>;
+   interrupts = <29 3 0>;
+   interrupt-parent = <&intc>;
+   clocks = <&rtc 4>;
+   status = "disabled";
+  };
+
+  i2s: i2s@6002d000 {
+   compatible = "espressif,esp32-i2s";
+   #address-cells = <1>;
+   #size-cells = <0>;
+   reg = <0x6002d000 0x1000>;
+   interrupts = <20 3 0>;
+   interrupt-parent = <&intc>;
+   clocks = <&rtc 5>;
+   dmas = <&dma 2>, <&dma 3>;
+   dma-names = "rx", "tx";
+   unit = <0>;
+   status = "disabled";
+  };
+
+  uart0: uart@60000000 {
+   compatible = "espressif,esp32-uart";
+   reg = <0x60000000 0x400>;
+   status = "disabled";
+   interrupts = <21 3 0>;
+   interrupt-parent = <&intc>;
+   clocks = <&rtc 1>;
+  };
+
+  uart1: uart@60010000 {
+   compatible = "espressif,esp32-uart";
+   reg = <0x60010000 0x400>;
+   status = "disabled";
+   interrupts = <22 3 0>;
+   interrupt-parent = <&intc>;
+   clocks = <&rtc 2>;
+   current-speed = <115200>;
+  };
+
+  ledc0: ledc@60019000 {
+   compatible = "espressif,esp32-ledc";
+   pwm-controller;
+   #pwm-cells = <3>;
+   reg = <0x60019000 0x1000>;
+   clocks = <&rtc 0>;
+   status = "disabled";
+  };
+
+  usb_serial: uart@60043000 {
+   compatible = "espressif,esp32-usb-serial";
+   reg = <0x60043000 0x400>;
+   status = "disabled";
+   interrupts = <26 3 0>;
+   interrupt-parent = <&intc>;
+   clocks = <&rtc 3>;
+  };
+
+  timer0: counter@6001f000 {
+   compatible = "espressif,esp32-timer";
+   reg = <0x6001F000 ((4) * 1024)>;
+   clocks = <&rtc 6>;
+   group = <0>;
+   index = <0>;
+   interrupts = <32 3 0>;
+   interrupt-parent = <&intc>;
+   status = "disabled";
+  };
+
+  timer1: counter@60020000 {
+   compatible = "espressif,esp32-timer";
+   reg = <0x60020000 ((4) * 1024)>;
+   clocks = <&rtc 7>;
+   group = <1>;
+   index = <0>;
+   interrupts = <34 3 0>;
+   interrupt-parent = <&intc>;
+   status = "disabled";
+  };
+
+  trng0: trng@3ff700b0 {
+   compatible = "espressif,esp32-trng";
+   reg = <0x3FF700B0 0x4>;
+   status = "disabled";
+  };
+
+  twai: can@6002b000 {
+   compatible = "espressif,esp32-twai";
+   reg = <0x6002b000 ((4) * 1024)>;
+   interrupts = <25 3 0>;
+   interrupt-parent = <&intc>;
+   clocks = <&rtc 12>;
+   status = "disabled";
+  };
+
+  spi2: spi@60024000 {
+   compatible = "espressif,esp32-spi";
+   reg = <0x60024000 ((4) * 1024)>;
+   interrupts = <19 3 0>;
+   interrupt-parent = <&intc>;
+   clocks = <&rtc 11>;
+   dma-clk = <24>;
+   dma-host = <0>;
+   status = "disabled";
+  };
+
+  wdt0: watchdog@6001f048 {
+   compatible = "espressif,esp32-watchdog";
+   reg = <0x6001f048 0x20>;
+   interrupts = <33 3 0>;
+   interrupt-parent = <&intc>;
+   clocks = <&rtc 6>;
+   status = "disabled";
+  };
+
+  wdt1: watchdog@60020048 {
+   compatible = "espressif,esp32-watchdog";
+   reg = <0x60020048 0x20>;
+   interrupts = <35 3 0>;
+   interrupt-parent = <&intc>;
+   clocks = <&rtc 7>;
+   status = "disabled";
+  };
+
+  coretemp: coretemp@60040058 {
+   compatible = "espressif,esp32-temp";
+   friendly-name = "coretemp";
+   reg = <0x60040058 0x4>;
+   status = "disabled";
+  };
+
+  adc0: adc@60040000 {
+   compatible = "espressif,esp32-adc";
+   reg = <0x60040000 4>;
+   unit = <1>;
+   channel-count = <5>;
+   #io-channel-cells = <1>;
+   status = "disabled";
+  };
+
+  adc1: adc@60040004 {
+   compatible = "espressif,esp32-adc";
+   reg = <0x60040004 4>;
+   unit = <2>;
+   channel-count = <2>;
+   #io-channel-cells = <1>;
+   status = "disabled";
+  };
+
+  dma: dma@6003f000 {
+   compatible = "espressif,esp32-gdma";
+   reg = <0x6003f000 ((4) * 1024)>;
+   #dma-cells = <1>;
+   interrupts =
+    <44 3 0>,
+    <45 3 0>,
+    <46 3 0>;
+   interrupt-parent = <&intc>;
+   clocks = <&rtc 24>;
+   dma-channels = <6>;
+   dma-buf-addr-alignment = <4>;
+   status = "disabled";
+  };
+
+ };
+
+};
+# 8 "/Volumes/Project/Zephyr_Project/zephyr/dts/riscv/espressif/esp32c3/esp32c3_fx4.dtsi" 2 3 4
+
+
+&flash0 {
+ reg = <0x0 (((4) * 1024) * 1024)>;
+};
+# 10 "/Volumes/Project/Zephyr_Project/zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3.dts" 2
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3-pinctrl.dtsi" 1
+
+
+
+
+
+
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/dt-bindings/pinctrl/esp-pinctrl-common.h" 1 3 4
+# 8 "/Volumes/Project/Zephyr_Project/zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3-pinctrl.dtsi" 2
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/dt-bindings/pinctrl/esp32c3-pinctrl.h" 1 3 4
+# 9 "/Volumes/Project/Zephyr_Project/zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3-pinctrl.dtsi" 2
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/include/zephyr/dt-bindings/pinctrl/esp32c3-gpio-sigmap.h" 1 3 4
+# 10 "/Volumes/Project/Zephyr_Project/zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3-pinctrl.dtsi" 2
+
+&pinctrl {
+ uart0_default: uart0_default {
+  group1 {
+   pinmux = <(((21 & 0x3FU) << 0U) | ((0x1FFU & 0x1FFU) << 6U) | ((6 & 0x1FFU) << 15U))>;
+   output-high;
+  };
+  group2 {
+   pinmux = <(((20 & 0x3FU) << 0U) | ((6 & 0x1FFU) << 6U) | ((0x1FFU & 0x1FFU) << 15U))>;
+   bias-pull-up;
+  };
+ };
+
+ spim2_default: spim2_default {
+  group1 {
+   pinmux = <(((9 & 0x3FU) << 0U) | ((64 & 0x1FFU) << 6U) | ((0x1FFU & 0x1FFU) << 15U))>,
+     <(((8 & 0x3FU) << 0U) | ((0x1FFU & 0x1FFU) << 6U) | ((63 & 0x1FFU) << 15U))>;
+  };
+  group2 {
+   pinmux = <(((10 & 0x3FU) << 0U) | ((0x1FFU & 0x1FFU) << 6U) | ((65 & 0x1FFU) << 15U))>;
+   output-low;
+  };
+ };
+
+ i2c0_default: i2c0_default {
+  group1 {
+   pinmux = <(((6 & 0x3FU) << 0U) | ((54 & 0x1FFU) << 6U) | ((54 & 0x1FFU) << 15U))>,
+     <(((7 & 0x3FU) << 0U) | ((53 & 0x1FFU) << 6U) | ((53 & 0x1FFU) << 15U))>;
+   bias-pull-up;
+   drive-open-drain;
+   output-high;
+  };
+ };
+
+ twai_default: twai_default {
+  group1 {
+   pinmux = <(((2 & 0x3FU) << 0U) | ((0x1FFU & 0x1FFU) << 6U) | ((74 & 0x1FFU) << 15U))>,
+     <(((3 & 0x3FU) << 0U) | ((74 & 0x1FFU) << 6U) | ((0x1FFU & 0x1FFU) << 15U))>;
+  };
+ };
+};
+# 11 "/Volumes/Project/Zephyr_Project/zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3.dts" 2
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/boards/seeed/xiao_esp32c3/seeed_xiao_connector.dtsi" 1
+
+
+
+
+
+
+/ {
+ xiao_d: connector {
+  compatible = "seeed,xiao-gpio";
+  #gpio-cells = <2>;
+  gpio-map-mask = <0xffffffff 0xffffffc0>;
+  gpio-map-pass-thru = <0 0x3f>;
+  gpio-map = <0 0 &gpio0 2 0>,
+      <1 0 &gpio0 3 0>,
+      <2 0 &gpio0 4 0>,
+      <3 0 &gpio0 5 0>,
+      <4 0 &gpio0 6 0>,
+      <5 0 &gpio0 7 0>,
+      <6 0 &gpio0 21 0>,
+      <7 0 &gpio0 20 0>,
+      <8 0 &gpio0 8 0>,
+      <9 0 &gpio0 9 0>,
+      <10 0 &gpio0 10 0>;
+ };
+};
+
+xiao_spi: &spi2 {};
+xiao_i2c: &i2c0 {};
+xiao_serial: &uart0 {};
+xiao_adc: &adc0 {};
+# 12 "/Volumes/Project/Zephyr_Project/zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3.dts" 2
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/dts/common/espressif/partitions_0x0_default.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/dts/common/espressif/partitions_0x0_default_4M.dtsi" 1 3 4
+
+
+
+
+
+
+
+&flash0 {
+ partitions {
+  compatible = "fixed-partitions";
+  #address-cells = <1>;
+  #size-cells = <1>;
+
+  boot_partition: partition@0 {
+   label = "mcuboot";
+   reg = <0x0 ((64) * 1024)>;
+  };
+
+  slot0_partition: partition@20000 {
+   label = "image-0";
+   reg = <0x20000 ((1856) * 1024)>;
+  };
+
+  slot1_partition: partition@1F0000 {
+   label = "image-1";
+   reg = <0x1F0000 ((1856) * 1024)>;
+  };
+
+  storage_partition: partition@3C0000 {
+   label = "storage";
+   reg = <0x3C0000 ((128) * 1024)>;
+  };
+
+  scratch_partition: partition@3E0000 {
+   label = "image-scratch";
+   reg = <0x3E0000 ((64) * 1024)>;
+  };
+
+  coredump_partition: partition@3F0000 {
+   label = "coredump-partition";
+   reg = <0x3F0000 ((4) * 1024)>;
+  };
+ };
+};
+# 8 "/Volumes/Project/Zephyr_Project/zephyr/dts/common/espressif/partitions_0x0_default.dtsi" 2 3 4
+# 13 "/Volumes/Project/Zephyr_Project/zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3.dts" 2
+
+/ {
+ model = "Seeed XIAO ESP32C3";
+ compatible = "seeed,xiao-esp32c3";
+
+ chosen {
+  zephyr,sram = &sram1;
+  zephyr,console = &usb_serial;
+  zephyr,shell-uart = &usb_serial;
+  zephyr,flash = &flash0;
+  zephyr,code-partition = &slot0_partition;
+  zephyr,canbus = &twai;
+  zephyr,bt-hci = &esp32_bt_hci;
+ };
+
+ aliases {
+  i2c-0 = &i2c0;
+  watchdog0 = &wdt0;
+ };
+};
+
+&uart0 {
+ status = "okay";
+ current-speed = <115200>;
+ pinctrl-0 = <&uart0_default>;
+ pinctrl-names = "default";
+};
+
+&usb_serial {
+ status = "okay";
+};
+
+&i2c0 {
+ status = "okay";
+ clock-frequency = <100000>;
+ pinctrl-0 = <&i2c0_default>;
+ pinctrl-names = "default";
+};
+
+&trng0 {
+ status = "okay";
+};
+
+&spi2 {
+ #address-cells = <1>;
+ #size-cells = <0>;
+ status = "okay";
+ pinctrl-0 = <&spim2_default>;
+ pinctrl-names = "default";
+};
+
+&gpio0 {
+ status = "okay";
+};
+
+&wdt0 {
+ status = "okay";
+};
+
+&timer0 {
+ status = "okay";
+};
+
+&timer1 {
+ status = "okay";
+};
+
+&twai {
+ status = "okay";
+ pinctrl-0 = <&twai_default>;
+ pinctrl-names = "default";
+};
+
+&wifi {
+ status = "okay";
+};
+
+&esp32_bt_hci {
+ status = "okay";
+};
+# 0 "<command-line>" 2
+# 1 "/Volumes/Project/Zephyr_Project/Esp32_C3_project/boards/xiao_esp32c3.overlay" 1
+&uart0 {
+    status = "okay";
+    current-speed = <115200>;
+};
+# 0 "<command-line>" 2
+# 1 "/Volumes/Project/Zephyr_Project/zephyr/misc/empty_file.c"

@@ -1,0 +1,379 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	model = "Seeed XIAO ESP32C3";
+	compatible = "seeed,xiao-esp32c3";
+	aliases {
+		die-temp0 = &coretemp;
+		i2c-0 = &i2c0;
+		watchdog0 = &wdt0;
+	};
+	chosen {
+		zephyr,canbus = &twai;
+		zephyr,entropy = &trng0;
+		zephyr,flash-controller = &flash;
+		zephyr,bt-hci = &esp32_bt_hci;
+		zephyr,sram = &sram1;
+		zephyr,console = &usb_serial;
+		zephyr,shell-uart = &usb_serial;
+		zephyr,flash = &flash0;
+		zephyr,code-partition = &slot0_partition;
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu@0 {
+			device_type = "cpu";
+			compatible = "espressif,riscv", "riscv";
+			riscv,isa = "rv32imc_zicsr";
+			reg = < 0x0 >;
+			cpu-power-states = < &light_sleep &deep_sleep >;
+			clock-source = < 0x1 >;
+			clock-frequency = < 0x9896800 >;
+			xtal-freq = < 0x2625a00 >;
+		};
+		power-states {
+			light_sleep: light_sleep {
+				compatible = "zephyr,power-state";
+				power-state-name = "standby";
+				min-residency-us = < 0xc8 >;
+				exit-latency-us = < 0x3c >;
+				phandle = < 0x1 >;
+			};
+			deep_sleep: deep_sleep {
+				compatible = "zephyr,power-state";
+				power-state-name = "soft-off";
+				min-residency-us = < 0x294 >;
+				exit-latency-us = < 0x69 >;
+				phandle = < 0x2 >;
+			};
+		};
+	};
+	pinctrl: pin-controller {
+		compatible = "espressif,esp32-pinctrl";
+		status = "okay";
+		uart0_default: uart0_default {
+			phandle = < 0x7 >;
+			group1 {
+				pinmux = < 0x37fd5 >;
+				output-high;
+			};
+			group2 {
+				pinmux = < 0xff8194 >;
+				bias-pull-up;
+			};
+		};
+		spim2_default: spim2_default {
+			phandle = < 0x9 >;
+			group1 {
+				pinmux = < 0xff9009 >, < 0x1fffc8 >;
+			};
+			group2 {
+				pinmux = < 0x20ffca >;
+				output-low;
+			};
+		};
+		i2c0_default: i2c0_default {
+			phandle = < 0x5 >;
+			group1 {
+				pinmux = < 0x1b0d86 >, < 0x1a8d47 >;
+				bias-pull-up;
+				drive-open-drain;
+				output-high;
+			};
+		};
+		twai_default: twai_default {
+			phandle = < 0x8 >;
+			group1 {
+				pinmux = < 0x257fc2 >, < 0xff9283 >;
+			};
+		};
+	};
+	wifi: wifi {
+		compatible = "espressif,esp32-wifi";
+		status = "okay";
+	};
+	esp32_bt_hci: esp32_bt_hci {
+		compatible = "espressif,esp32-bt-hci";
+		status = "okay";
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		ranges;
+		sram0: memory@4037c000 {
+			compatible = "zephyr,memory-region", "mmio-sram";
+			reg = < 0x4037c000 0x4000 >;
+			zephyr,memory-region = "SRAM0";
+		};
+		sram1: memory@3fc80000 {
+			compatible = "zephyr,memory-region", "mmio-sram";
+			reg = < 0x3fc80000 0x60000 >;
+			zephyr,memory-region = "SRAM1";
+		};
+		intc: interrupt-controller@600c2000 {
+			compatible = "espressif,esp32-intc";
+			#address-cells = < 0x0 >;
+			#interrupt-cells = < 0x3 >;
+			interrupt-controller;
+			reg = < 0x600c2000 0x198 >;
+			status = "okay";
+			phandle = < 0x3 >;
+		};
+		systimer0: systimer@60023000 {
+			compatible = "espressif,esp32-systimer";
+			reg = < 0x60023000 0x80 >;
+			interrupts = < 0x25 0x3 0x0 >;
+			interrupt-parent = < &intc >;
+			status = "okay";
+		};
+		rtc: rtc@60008000 {
+			compatible = "espressif,esp32-rtc";
+			reg = < 0x60008000 0x1000 >;
+			fast-clk-src = < 0x1 >;
+			slow-clk-src = < 0x0 >;
+			#clock-cells = < 0x1 >;
+			status = "okay";
+			phandle = < 0x4 >;
+		};
+		xt_wdt: xt_wdt@60008004 {
+			compatible = "espressif,esp32-xt-wdt";
+			reg = < 0x60008004 0x4 >;
+			clocks = < &rtc 0x1b >;
+			interrupts = < 0x1b 0x3 0x0 >;
+			interrupt-parent = < &intc >;
+			status = "disabled";
+		};
+		rtc_timer: rtc_timer@60008004 {
+			reg = < 0x60008004 0xc >;
+			compatible = "espressif,esp32-rtc-timer";
+			clocks = < &rtc 0x1b >;
+			interrupts = < 0x1b 0x3 0x0 >;
+			interrupt-parent = < &intc >;
+			status = "okay";
+		};
+		flash: flash-controller@60002000 {
+			compatible = "espressif,esp32-flash-controller";
+			reg = < 0x60002000 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			flash0: flash@0 {
+				compatible = "soc-nv-flash";
+				erase-block-size = < 0x1000 >;
+				write-block-size = < 0x4 >;
+				reg = < 0x0 0x400000 >;
+				partitions {
+					compatible = "fixed-partitions";
+					#address-cells = < 0x1 >;
+					#size-cells = < 0x1 >;
+					boot_partition: partition@0 {
+						label = "mcuboot";
+						reg = < 0x0 0x10000 >;
+					};
+					slot0_partition: partition@20000 {
+						label = "image-0";
+						reg = < 0x20000 0x1d0000 >;
+					};
+					slot1_partition: partition@1F0000 {
+						label = "image-1";
+						reg = < 0x1f0000 0x1d0000 >;
+					};
+					storage_partition: partition@3C0000 {
+						label = "storage";
+						reg = < 0x3c0000 0x20000 >;
+					};
+					scratch_partition: partition@3E0000 {
+						label = "image-scratch";
+						reg = < 0x3e0000 0x10000 >;
+					};
+					coredump_partition: partition@3F0000 {
+						label = "coredump-partition";
+						reg = < 0x3f0000 0x1000 >;
+					};
+				};
+			};
+		};
+		gpio0: gpio@60004000 {
+			compatible = "espressif,esp32-gpio";
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			reg = < 0x60004000 0x800 >;
+			interrupts = < 0x10 0x3 0x0 >;
+			interrupt-parent = < &intc >;
+			ngpios = < 0x1a >;
+			status = "okay";
+			phandle = < 0xa >;
+		};
+		i2c0: xiao_i2c: i2c@60013000 {
+			compatible = "espressif,esp32-i2c";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x60013000 0x1000 >;
+			interrupts = < 0x1d 0x3 0x0 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0x4 >;
+			status = "okay";
+			clock-frequency = < 0x186a0 >;
+			pinctrl-0 = < &i2c0_default >;
+			pinctrl-names = "default";
+		};
+		i2s: i2s@6002d000 {
+			compatible = "espressif,esp32-i2s";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x6002d000 0x1000 >;
+			interrupts = < 0x14 0x3 0x0 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0x5 >;
+			dmas = < &dma 0x2 >, < &dma 0x3 >;
+			dma-names = "rx", "tx";
+			unit = < 0x0 >;
+			status = "disabled";
+		};
+		uart0: xiao_serial: uart@60000000 {
+			compatible = "espressif,esp32-uart";
+			reg = < 0x60000000 0x400 >;
+			status = "okay";
+			interrupts = < 0x15 0x3 0x0 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0x1 >;
+			current-speed = < 0x1c200 >;
+			pinctrl-0 = < &uart0_default >;
+			pinctrl-names = "default";
+		};
+		uart1: uart@60010000 {
+			compatible = "espressif,esp32-uart";
+			reg = < 0x60010000 0x400 >;
+			status = "disabled";
+			interrupts = < 0x16 0x3 0x0 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0x2 >;
+			current-speed = < 0x1c200 >;
+		};
+		ledc0: ledc@60019000 {
+			compatible = "espressif,esp32-ledc";
+			pwm-controller;
+			#pwm-cells = < 0x3 >;
+			reg = < 0x60019000 0x1000 >;
+			clocks = < &rtc 0x0 >;
+			status = "disabled";
+		};
+		usb_serial: uart@60043000 {
+			compatible = "espressif,esp32-usb-serial";
+			reg = < 0x60043000 0x400 >;
+			status = "okay";
+			interrupts = < 0x1a 0x3 0x0 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0x3 >;
+		};
+		timer0: counter@6001f000 {
+			compatible = "espressif,esp32-timer";
+			reg = < 0x6001f000 0x1000 >;
+			clocks = < &rtc 0x6 >;
+			group = < 0x0 >;
+			index = < 0x0 >;
+			interrupts = < 0x20 0x3 0x0 >;
+			interrupt-parent = < &intc >;
+			status = "okay";
+		};
+		timer1: counter@60020000 {
+			compatible = "espressif,esp32-timer";
+			reg = < 0x60020000 0x1000 >;
+			clocks = < &rtc 0x7 >;
+			group = < 0x1 >;
+			index = < 0x0 >;
+			interrupts = < 0x22 0x3 0x0 >;
+			interrupt-parent = < &intc >;
+			status = "okay";
+		};
+		trng0: trng@3ff700b0 {
+			compatible = "espressif,esp32-trng";
+			reg = < 0x3ff700b0 0x4 >;
+			status = "okay";
+		};
+		twai: can@6002b000 {
+			compatible = "espressif,esp32-twai";
+			reg = < 0x6002b000 0x1000 >;
+			interrupts = < 0x19 0x3 0x0 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0xc >;
+			status = "okay";
+			pinctrl-0 = < &twai_default >;
+			pinctrl-names = "default";
+		};
+		spi2: xiao_spi: spi@60024000 {
+			compatible = "espressif,esp32-spi";
+			reg = < 0x60024000 0x1000 >;
+			interrupts = < 0x13 0x3 0x0 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0xb >;
+			dma-clk = < 0x18 >;
+			dma-host = < 0x0 >;
+			status = "okay";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			pinctrl-0 = < &spim2_default >;
+			pinctrl-names = "default";
+		};
+		wdt0: watchdog@6001f048 {
+			compatible = "espressif,esp32-watchdog";
+			reg = < 0x6001f048 0x20 >;
+			interrupts = < 0x21 0x3 0x0 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0x6 >;
+			status = "okay";
+		};
+		wdt1: watchdog@60020048 {
+			compatible = "espressif,esp32-watchdog";
+			reg = < 0x60020048 0x20 >;
+			interrupts = < 0x23 0x3 0x0 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0x7 >;
+			status = "disabled";
+		};
+		coretemp: coretemp@60040058 {
+			compatible = "espressif,esp32-temp";
+			friendly-name = "coretemp";
+			reg = < 0x60040058 0x4 >;
+			status = "disabled";
+		};
+		adc0: xiao_adc: adc@60040000 {
+			compatible = "espressif,esp32-adc";
+			reg = < 0x60040000 0x4 >;
+			unit = < 0x1 >;
+			channel-count = < 0x5 >;
+			#io-channel-cells = < 0x1 >;
+			status = "disabled";
+		};
+		adc1: adc@60040004 {
+			compatible = "espressif,esp32-adc";
+			reg = < 0x60040004 0x4 >;
+			unit = < 0x2 >;
+			channel-count = < 0x2 >;
+			#io-channel-cells = < 0x1 >;
+			status = "disabled";
+		};
+		dma: dma@6003f000 {
+			compatible = "espressif,esp32-gdma";
+			reg = < 0x6003f000 0x1000 >;
+			#dma-cells = < 0x1 >;
+			interrupts = < 0x2c 0x3 0x0 >, < 0x2d 0x3 0x0 >, < 0x2e 0x3 0x0 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0x18 >;
+			dma-channels = < 0x6 >;
+			dma-buf-addr-alignment = < 0x4 >;
+			status = "disabled";
+			phandle = < 0x6 >;
+		};
+	};
+	xiao_d: connector {
+		compatible = "seeed,xiao-gpio";
+		#gpio-cells = < 0x2 >;
+		gpio-map-mask = < 0xffffffff 0xffffffc0 >;
+		gpio-map-pass-thru = < 0x0 0x3f >;
+		gpio-map = < 0x0 0x0 &gpio0 0x2 0x0 >, < 0x1 0x0 &gpio0 0x3 0x0 >, < 0x2 0x0 &gpio0 0x4 0x0 >, < 0x3 0x0 &gpio0 0x5 0x0 >, < 0x4 0x0 &gpio0 0x6 0x0 >, < 0x5 0x0 &gpio0 0x7 0x0 >, < 0x6 0x0 &gpio0 0x15 0x0 >, < 0x7 0x0 &gpio0 0x14 0x0 >, < 0x8 0x0 &gpio0 0x8 0x0 >, < 0x9 0x0 &gpio0 0x9 0x0 >, < 0xa 0x0 &gpio0 0xa 0x0 >;
+	};
+};

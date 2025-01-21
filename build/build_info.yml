@@ -1,0 +1,53 @@
+cmake:
+  application:
+    configuration-dir: /Volumes/Project/Zephyr_Project/Esp32_C3_project
+    source-dir: /Volumes/Project/Zephyr_Project/Esp32_C3_project
+  board:
+    name: xiao_esp32c3
+    qualifiers: esp32c3
+    revision: 
+  devicetree:
+    bindings-dirs:
+     - /Volumes/Project/Zephyr_Project/zephyr/dts/bindings
+    files:
+     - /Volumes/Project/Zephyr_Project/zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3.dts
+     - /Volumes/Project/Zephyr_Project/Esp32_C3_project/boards/xiao_esp32c3.overlay
+    include-dirs:
+     - /Volumes/Project/Zephyr_Project/modules/hal/atmel/include
+     - /Volumes/Project/Zephyr_Project/modules/hal/gigadevice/include
+     - /Volumes/Project/Zephyr_Project/modules/hal/microchip/dts
+     - /Volumes/Project/Zephyr_Project/modules/hal/nuvoton/dts
+     - /Volumes/Project/Zephyr_Project/modules/hal/nxp/dts
+     - /Volumes/Project/Zephyr_Project/modules/hal/stm32/dts
+     - /Volumes/Project/Zephyr_Project/zephyr/include
+     - /Volumes/Project/Zephyr_Project/zephyr/include/zephyr
+     - /Volumes/Project/Zephyr_Project/zephyr/dts/common
+     - /Volumes/Project/Zephyr_Project/zephyr/dts/x86
+     - /Volumes/Project/Zephyr_Project/zephyr/dts/xtensa
+     - /Volumes/Project/Zephyr_Project/zephyr/dts/sparc
+     - /Volumes/Project/Zephyr_Project/zephyr/dts/riscv
+     - /Volumes/Project/Zephyr_Project/zephyr/dts/posix
+     - /Volumes/Project/Zephyr_Project/zephyr/dts/nios2
+     - /Volumes/Project/Zephyr_Project/zephyr/dts/arm64
+     - /Volumes/Project/Zephyr_Project/zephyr/dts/arm
+     - /Volumes/Project/Zephyr_Project/zephyr/dts/arc
+     - /Volumes/Project/Zephyr_Project/zephyr/dts
+    user-files:
+     - /Volumes/Project/Zephyr_Project/Esp32_C3_project/boards/xiao_esp32c3.overlay
+  kconfig:
+    files:
+     - /Volumes/Project/Zephyr_Project/zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3_defconfig
+     - /Volumes/Project/Zephyr_Project/Esp32_C3_project/prj.conf
+    user-files:
+     - /Volumes/Project/Zephyr_Project/Esp32_C3_project/prj.conf
+  toolchain:
+    name: zephyr
+    path: /Volumes/Project/zephyr-sdk-0.17.0
+  zephyr:
+    version: 4.0.99
+    zephyr-base: /Volumes/Project/Zephyr_Project/zephyr
+version: 0.1.0
+west:
+  command: /Volumes/Project/Zephyr_Project/zephyr-env/bin/west build -b xiao_esp32c3 -p
+  topdir: /Volumes/Project/Zephyr_Project
+  version: 1.3.0

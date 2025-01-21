@@ -1,0 +1,2 @@
+# Load board Kconfig descriptions.
+osource "/Volumes/Project/Zephyr_Project/zephyr/boards/seeed/xiao_esp32c3/Kconfig.xiao_esp32c3"
